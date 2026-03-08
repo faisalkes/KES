@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- Title -->
+    <mxCell id="title" value="STC SIP Trunk Architecture – Avaya IP Office Server Edition&#xa;PROP-2026-AVAYA-001 | [CUSTOMER NAME] | March 7, 2026" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="150" y="20" width="870" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- STC Cloud -->
+    <mxCell id="stc" value="STC Saudi Telecom Company&#xa;SIP Network&#xa;&#xa;Primary Proxy: [TBD – STC]&#xa;Secondary Proxy: [TBD – STC]&#xa;DID Range: [TBD – STC]&#xa;Channels: 100&#xa;Codec: G.711A / G.729&#xa;DTMF: RFC 2833" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+      <mxGeometry x="410" y="80" width="260" height="180" as="geometry" />
+    </mxCell>
+
+    <!-- Disclaimer -->
+    <mxCell id="disclaimer" value="⚠ Disclaimer: STC proxy IPs, FQDN,&#xa;and DID ranges are provided by STC&#xa;Saudi Telecom and are TBD." style="text;html=1;strokeColor=#d6b656;fillColor=#ffffc0;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="710" y="110" width="220" height="60" as="geometry" />
+    </mxCell>
+
+    <!-- Internet/WAN -->
+    <mxCell id="wan" value="INTERNET / WAN" style="shape=mxgraph.network.cloud;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="430" y="300" width="220" height="90" as="geometry" />
+    </mxCell>
+    <mxCell id="e_stc_wan" value="SIP UDP/TCP 5060&#xa;or TLS 5061" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="stc" target="wan" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Firewall -->
+    <mxCell id="fw_box" value="CUSTOMER FIREWALL&#xa;&#xa;• SIP ALG: DISABLED&#xa;• Inbound: Allow STC IPs → SBC:5060&#xa;• Inbound: Allow STC Media → SBC:49152-65535&#xa;• Outbound: Allow SBC → STC:5060&#xa;• NAT: SBC Public IP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;fontStyle=0;align=left;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="360" y="430" width="360" height="110" as="geometry" />
+    </mxCell>
+    <mxCell id="e_wan_fw" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="wan" target="fw_box" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- DMZ label -->
+    <mxCell id="dmz_label" value="DMZ Zone" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontStyle=3;" vertex="1" parent="1">
+      <mxGeometry x="490" y="572" width="100" height="20" as="geometry" />
+    </mxCell>
+
+    <!-- Avaya SBCE -->
+    <mxCell id="sbce_main" value="AVAYA SBCE&#xa;(Session Border Controller for Enterprise)&#xa;&#xa;Public (WAN) Interface: [TBD]&#xa;Private (LAN) Interface: [TBD]&#xa;Sessions: 100&#xa;SIP Normalization | Topology Hiding&#xa;DoS Protection | NAT Traversal&#xa;TLS/SRTP (if required)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;fontStyle=1;align=left;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="330" y="600" width="420" height="130" as="geometry" />
+    </mxCell>
+    <mxCell id="e_fw_sbce" value="DMZ / Trusted" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="fw_box" target="sbce_main" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- AudioCodes Alternative -->
+    <mxCell id="ac_alt" value="Alternative SBC:&#xa;AudioCodes Mediant 800&#xa;(if selected instead of SBCE)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="800" y="630" width="180" height="70" as="geometry" />
+    </mxCell>
+    <mxCell id="e_ac_note" value="OR" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="765" y="655" width="30" height="20" as="geometry" />
+    </mxCell>
+
+    <!-- LAN label -->
+    <mxCell id="lan_label" value="Internal LAN (Private)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontStyle=3;" vertex="1" parent="1">
+      <mxGeometry x="480" y="750" width="130" height="20" as="geometry" />
+    </mxCell>
+
+    <!-- IP Office Server -->
+    <mxCell id="ipo_server" value="AVAYA IP OFFICE&#xa;Server Edition R12.x&#xa;&#xa;SIP Line → SBC Private IP&#xa;Transport: UDP 5060&#xa;Channels: 100&#xa;Codecs: G.711A / G.729&#xa;DTMF: RFC 2833" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;align=left;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="360" y="780" width="360" height="130" as="geometry" />
+    </mxCell>
+    <mxCell id="e_sbce_ipo" value="SIP Trunk (Internal)&#xa;UDP 5060" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="sbce_main" target="ipo_server" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Call flow annotations -->
+    <mxCell id="cf_inbound" value="INBOUND CALL FLOW:&#xa;STC → WAN → Firewall → SBCE → IP Office → Extension" style="text;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="60" y="430" width="260" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="cf_outbound" value="OUTBOUND CALL FLOW:&#xa;Extension → IP Office → SBCE → Firewall → WAN → STC" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="60" y="500" width="260" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- SIP Parameters box -->
+    <mxCell id="sip_params" value="SIP TRUNK PARAMETERS&#xa;──────────────────────&#xa;Transport: UDP/TCP 5060 or TLS 5061&#xa;Primary Codec: G.711A (a-law)&#xa;Secondary Codec: G.729&#xa;DTMF: RFC 2833 (payload 101)&#xa;RTP Port Range: 49152–65535&#xa;Session Timer: 1800s&#xa;Keep-alive: SIP OPTIONS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=10;align=left;spacingLeft=5;" vertex="1" parent="1">
+      <mxGeometry x="60" y="600" width="220" height="160" as="geometry" />
+    </mxCell>
+
+  </root>
+</mxGraphModel>

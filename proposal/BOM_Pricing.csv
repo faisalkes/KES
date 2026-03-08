@@ -1,0 +1,85 @@
+Section,Item_Number,Part_Description,Model,Quantity,Unit_Price_USD,Total_Price_USD
+"SERVER HARDWARE (ESTIMATE)",,,,,,
+Server Hardware,SH-001,"Physical Server - Dell PowerEdge R250 (Intel Xeon E-2314 / 32GB RAM / 2x480GB SSD RAID1 / 2x1GbE) - Avaya-certified class","Dell PowerEdge R250",1,4500,4500
+Server Hardware,SH-002,"Rack mounting kit 1U","Dell ReadyRails 1U",1,150,150
+Server Hardware,SH-003,"UPS for server rack (1500VA)","APC SMT1500",1,600,600
+Server Hardware,SH-004,"Server rack cabinet (12U)",Generic 12U Rack,1,350,350
+Server Hardware,SH-SUB,"SUBTOTAL - Server Hardware",,,,5600
+,,,,,,
+"SESSION BORDER CONTROLLER (ESTIMATE)",,,,,,
+SBC,SBC-001,"Avaya SBCE - Session Border Controller for Enterprise (software license, 100 sessions)","Avaya SBCE",1,9500,9500
+SBC,SBC-002,"SBCE server appliance hardware (if dedicated appliance)","Avaya SBCE Appliance",1,2500,2500
+SBC,SBC-ALT-001,"ALTERNATIVE: AudioCodes Mediant 800 SBC (100 SIP sessions)","AudioCodes Mediant 800",1,6500,6500
+SBC,SBC-NOTE,"NOTE: Price SBC-001+SBC-002 OR SBC-ALT-001 - not both",,,,
+SBC,SBC-SUB,"SUBTOTAL - SBC (Avaya SBCE option)",,,,12000
+,,,,,,
+"IP500 V2 CONTROLLERS & ANALOG CARDS (ESTIMATE)",,,,,,
+IP500 V2,CTL-001,"Avaya IP500 V2 Control Unit - Building A","Avaya IP500 V2",1,4500,4500
+IP500 V2,CTL-002,"Avaya IP500 V2 Control Unit - Building B","Avaya IP500 V2",1,4500,4500
+IP500 V2,CTL-003,"Phone 16 V2 Card (16 analog ports) - Building A Card 1","Avaya Phone 16 V2",1,800,800
+IP500 V2,CTL-004,"Phone 16 V2 Card (16 analog ports) - Building A Card 2","Avaya Phone 16 V2",1,800,800
+IP500 V2,CTL-005,"Phone 16 V2 Card (16 analog ports) - Building B Card 1","Avaya Phone 16 V2",1,800,800
+IP500 V2,CTL-006,"Phone 16 V2 Card (16 analog ports) - Building B Card 2","Avaya Phone 16 V2",1,800,800
+IP500 V2,CTL-007,"IP500 V2 Base Card - VCM 64 (Voice Compression Module)","Avaya VCM 64",2,700,1400
+IP500 V2,CTL-SUB,"SUBTOTAL - IP500 V2 Controllers & Cards",,,,13600
+,,,,,,
+"IP PHONES - J-SERIES (ESTIMATE)",,,,,,
+IP Phones,PH-001,"Avaya J129 IP Phone - Lobby/Common Area (monochrome 2.3 inch display)","Avaya J129",50,95,4750
+IP Phones,PH-002,"Avaya J139 IP Phone - General Staff (monochrome 3.2 inch, 3 lines)","Avaya J139",300,120,36000
+IP Phones,PH-003,"Avaya J159 IP Phone - Standard Office (color 3.5 inch, Bluetooth, USB)","Avaya J159",400,155,62000
+IP Phones,PH-004,"Avaya J169 IP Phone - Power User/Reception (color 3.5 inch, 16 lines)","Avaya J169",150,185,27750
+IP Phones,PH-005,"Avaya J179 IP Phone - Manager/Supervisor (color 3.5 inch, 16 lines)","Avaya J179",70,210,14700
+IP Phones,PH-006,"Avaya J189 IP Phone - Senior Executive (color 5.5 inch, 16 lines)","Avaya J189",20,280,5600
+IP Phones,PH-007,"Avaya J199 IP Phone - C-Suite/Boardroom (color 7 inch touchscreen)","Avaya J199",10,420,4200
+IP Phones,PH-SUB,"SUBTOTAL - IP Phones (1,000 units)",,1000,,155000
+,,,,,,
+"ANALOG PHONES - OPTIONAL (ESTIMATE)",,,,,,
+Analog Phones,AP-001,"Analog desk phone for analog extension ports (basic model) - qty 60","Generic Analog Phone",60,35,2100
+Analog Phones,AP-SUB,"SUBTOTAL - Analog Phones (optional - 60 units)",,,,2100
+,,,,,,
+"SOFTWARE & LICENSES (ESTIMATE)",,,,,,
+Software,SW-001,"Avaya IP Office Server Edition R12.x - Base License (software)","IPO Server Edition",1,3500,3500
+Software,SW-002,"Avaya IP Office - IP User License (1,000 endpoints)","IPO IP User",1000,20,20000
+Software,SW-003,"Avaya Voicemail Pro - 50 Port License","IPO Voicemail Pro",1,4500,4500
+Software,SW-004,"Avaya one-X Portal License (optional - 100 users)","IPO one-X Portal",100,25,2500
+Software,SW-005,"Avaya IP Office - SIP Trunk License (100 channels)","IPO SIP Trunk",100,10,1000
+Software,SW-006,"Avaya IP Office - Essential Edition Upgrade (if required)","IPO Essential",1,1500,1500
+Software,SW-SUB,"SUBTOTAL - Software & Licenses",,,,33000
+,,,,,,
+"NETWORK INFRASTRUCTURE - PoE SWITCHES (ESTIMATE)",,,,,,
+Network,NW-001,"48-Port PoE+ Managed Switch (802.3at, 740W budget) - Building A Floor 1","Cisco Catalyst 9200 48P (example)",2,3500,7000
+Network,NW-002,"48-Port PoE+ Managed Switch (802.3at, 740W budget) - Building A Floor 2","Cisco Catalyst 9200 48P (example)",2,3500,7000
+Network,NW-003,"48-Port PoE+ Managed Switch (802.3at, 740W budget) - Building B Floor 1","Cisco Catalyst 9200 48P (example)",2,3500,7000
+Network,NW-004,"48-Port PoE+ Managed Switch (802.3at, 740W budget) - Building B Floor 2","Cisco Catalyst 9200 48P (example)",2,3500,7000
+Network,NW-005,"Core/Aggregation Switch 24-Port SFP (fiber uplink capable)","Cisco Catalyst 9300 24S (example)",2,5000,10000
+Network,NW-006,"SFP Fiber Modules (SM/MM) for fiber interconnect","Generic SFP-1G-SX",4,150,600
+Network,NW-007,"Patch cables (Cat6, 1m, quantity 200)","Generic Cat6 1m",200,3,600
+Network,NW-SUB,"SUBTOTAL - Network Infrastructure (PoE Switches)",,,,39200
+,,,,,,
+"PROFESSIONAL SERVICES (ESTIMATE)",,,,,,
+Services,SV-001,"Project management (16 weeks)","[YOUR COMPANY NAME]",1,5000,5000
+Services,SV-002,"Server hardware installation & configuration","[YOUR COMPANY NAME]",2,800,1600
+Services,SV-003,"IP Office Server Edition software installation & base configuration","[YOUR COMPANY NAME]",3,800,2400
+Services,SV-004,"Avaya SBCE installation & STC SIP trunk integration","[YOUR COMPANY NAME]",3,800,2400
+Services,SV-005,"IP500 V2 controller installation (×2 buildings)","[YOUR COMPANY NAME]",4,800,3200
+Services,SV-006,"IP phone deployment & configuration (1,000 phones, phased)","[YOUR COMPANY NAME]",10,800,8000
+Services,SV-007,"Dial plan, ARS, and short code configuration","[YOUR COMPANY NAME]",2,800,1600
+Services,SV-008,"Voicemail Pro & auto-attendant configuration","[YOUR COMPANY NAME]",2,800,1600
+Services,SV-009,"VLAN/QoS/DHCP Option 176 network configuration","[YOUR COMPANY NAME]",2,800,1600
+Services,SV-010,"User acceptance testing (UAT) support","[YOUR COMPANY NAME]",2,800,1600
+Services,SV-011,"Go-live cutover & post-go-live support (30 days)","[YOUR COMPANY NAME]",3,800,2400
+Services,SV-SUB,"SUBTOTAL - Professional Services",,,,31400
+,,,,,,
+"TRAINING (ESTIMATE)",,,,,,
+Training,TR-001,"End-user training (1-day session, up to 20 users per session × 5 sessions)","[YOUR COMPANY NAME]",5,600,3000
+Training,TR-002,"Administrator training (2-day advanced session)","[YOUR COMPANY NAME]",1,1200,1200
+Training,TR-SUB,"SUBTOTAL - Training",,,,4200
+,,,,,,
+"SUPPORT & MAINTENANCE - YEAR 1 (ESTIMATE)",,,,,,
+Support,SP-001,"Avaya IP Office Software Support + Upgrade Subscription (Year 1)","Avaya SSU Year 1",1,4000,4000
+Support,SP-002,"Hardware maintenance (next business day on-site, Year 1)","NBD On-Site",1,3000,3000
+Support,SP-003,"24x7 helpdesk support Year 1 (optional)","[YOUR COMPANY NAME]",1,3500,3500
+Support,SP-SUB,"SUBTOTAL - Support & Maintenance Year 1",,,,10500
+,,,,,,
+GRAND TOTAL,,,,,,"GRAND TOTAL ESTIMATE (USD): $306,600"
+DISCLAIMER,,,"ALL PRICES ARE ESTIMATES FOR BUDGETARY PURPOSES ONLY. Actual pricing subject to Avaya partner pricing, market rates, VAT, customs, and final scope confirmation. Formal binding quotation available on request.",,,,
