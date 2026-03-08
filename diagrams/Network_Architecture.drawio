@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- Title -->
+    <mxCell id="title" value="Avaya IP Office Server Edition R12.x - Full Network Architecture&#xa;PROP-2026-AVAYA-001 | [CUSTOMER NAME] | March 7, 2026" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="300" y="20" width="1000" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- STC Cloud -->
+    <mxCell id="stc_cloud" value="STC Saudi Telecom&#xa;SIP Network&#xa;(100 Channels)&#xa;Proxy: TBD&#xa;DID Range: TBD" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="620" y="90" width="200" height="120" as="geometry" />
+    </mxCell>
+
+    <!-- Internet/WAN -->
+    <mxCell id="wan" value="INTERNET / WAN" style="shape=mxgraph.network.cloud;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="600" y="240" width="240" height="100" as="geometry" />
+    </mxCell>
+
+    <!-- Arrow STC to WAN -->
+    <mxCell id="e_stc_wan" value="SIP UDP/TCP 5060&#xa;or TLS 5061" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="stc_cloud" target="wan" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Firewall -->
+    <mxCell id="firewall" value="CUSTOMER FIREWALL&#xa;NAT / DMZ&#xa;SIP ALG: DISABLED" style="shape=mxgraph.cisco.firewalls.firewall;html=1;pointerEvents=1;dashed=0;fillColor=#f8cecc;strokeColor=#b85450;sketch=0;aspect=fixed;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="670" y="380" width="100" height="80" as="geometry" />
+    </mxCell>
+
+    <!-- Arrow WAN to Firewall -->
+    <mxCell id="e_wan_fw" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="wan" target="firewall" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Avaya SBCE -->
+    <mxCell id="sbce" value="AVAYA SBCE&#xa;Session Border Controller&#xa;for Enterprise&#xa;Public IF: [TBD]&#xa;Private IF: [TBD]&#xa;100 Sessions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="620" y="500" width="200" height="110" as="geometry" />
+    </mxCell>
+
+    <!-- Arrow Firewall to SBCE -->
+    <mxCell id="e_fw_sbce" value="DMZ" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="firewall" target="sbce" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- AudioCodes alternative note -->
+    <mxCell id="sbce_alt" value="Alternative SBC:&#xa;AudioCodes Mediant 800" style="text;html=1;strokeColor=#d6b656;fillColor=#ffffc0;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="860" y="530" width="160" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- BUILDING A CONTAINER -->
+    <mxCell id="bldg_a_container" value="BUILDING A – Main Site" style="swimlane;fontStyle=1;fontSize=13;fillColor=#fff2cc;strokeColor=#d6b656;startSize=30;" vertex="1" parent="1">
+      <mxGeometry x="80" y="650" width="620" height="460" as="geometry" />
+    </mxCell>
+
+    <!-- Core Switch A -->
+    <mxCell id="core_sw_a" value="Core Switch&#xa;Building A&#xa;(VLAN 10/20/30&#xa;QoS Enabled)" style="shape=mxgraph.cisco.switches.workgroup_switch;html=1;pointerEvents=1;dashed=0;fillColor=#dae8fc;strokeColor=#6c8ebf;sketch=0;aspect=fixed;fontSize=10;" vertex="1" parent="bldg_a_container">
+      <mxGeometry x="260" y="60" width="100" height="70" as="geometry" />
+    </mxCell>
+
+    <!-- Primary Server -->
+    <mxCell id="server" value="PRIMARY SERVER&#xa;Dell PowerEdge R250&#xa;Intel Xeon E-2314&#xa;32GB RAM | 2×480GB SSD RAID1&#xa;Avaya IP Office Server Ed. R12.x&#xa;Voicemail Pro (50 ports)&#xa;1,000 EP Licenses" style="shape=mxgraph.cisco.servers.standard_server;html=1;pointerEvents=1;dashed=0;fillColor=#d5e8d4;strokeColor=#82b366;sketch=0;aspect=fixed;fontSize=10;fontStyle=1;" vertex="1" parent="bldg_a_container">
+      <mxGeometry x="60" y="50" width="80" height="90" as="geometry" />
+    </mxCell>
+
+    <!-- IP500 V2 #1 -->
+    <mxCell id="ip500_a" value="Avaya IP500 V2 #1&#xa;Building A Controller&#xa;2× Phone 16 V2 Cards&#xa;32 Analog Ports&#xa;(30 used, 2 spare)&#xa;SCN via LAN" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0a30a;fontColor=#000000;strokeColor=#BD7000;fontSize=10;fontStyle=1;" vertex="1" parent="bldg_a_container">
+      <mxGeometry x="60" y="220" width="160" height="100" as="geometry" />
+    </mxCell>
+
+    <!-- Analog Extensions A label -->
+    <mxCell id="analog_a" value="30 × Analog Extensions&#xa;(Fax, Door Phone, Legacy)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=10;" vertex="1" parent="bldg_a_container">
+      <mxGeometry x="60" y="360" width="160" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- PoE Access Switch A -->
+    <mxCell id="poe_sw_a" value="PoE+ Access Switches&#xa;48-port 802.3at&#xa;VLAN 20 (Voice)&#xa;DSCP EF marking" style="shape=mxgraph.cisco.switches.workgroup_switch;html=1;pointerEvents=1;dashed=0;fillColor=#dae8fc;strokeColor=#6c8ebf;sketch=0;aspect=fixed;fontSize=10;" vertex="1" parent="bldg_a_container">
+      <mxGeometry x="400" y="210" width="100" height="70" as="geometry" />
+    </mxCell>
+
+    <!-- IP Phones A -->
+    <mxCell id="phones_a" value="500 × Avaya J-Series&#xa;IP Phones&#xa;(J129/J139/J159/J169&#xa;J179/J189/J199)&#xa;VLAN 20 – Voice&#xa;DHCP Option 176" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="bldg_a_container">
+      <mxGeometry x="400" y="330" width="160" height="100" as="geometry" />
+    </mxCell>
+
+    <!-- Connections in Building A -->
+    <mxCell id="e_server_coreswa" value="LAN (1GbE)" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="server" target="core_sw_a" parent="bldg_a_container">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e_ip500a_coreswa" value="SCN / LAN" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="ip500_a" target="core_sw_a" parent="bldg_a_container">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e_ip500a_analog_a" value="Analog lines" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="ip500_a" target="analog_a" parent="bldg_a_container">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e_poe_core_a" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="poe_sw_a" target="core_sw_a" parent="bldg_a_container">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e_phones_poe_a" value="PoE (IEEE 802.3at)" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="phones_a" target="poe_sw_a" parent="bldg_a_container">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- BUILDING B CONTAINER -->
+    <mxCell id="bldg_b_container" value="BUILDING B – Remote Site (Survivability Enabled)" style="swimlane;fontStyle=1;fontSize=13;fillColor=#e1d5e7;strokeColor=#9673a6;startSize=30;" vertex="1" parent="1">
+      <mxGeometry x="920" y="650" width="620" height="460" as="geometry" />
+    </mxCell>
+
+    <!-- Core Switch B -->
+    <mxCell id="core_sw_b" value="Core Switch&#xa;Building B&#xa;(VLAN 10/20/30&#xa;QoS Enabled)" style="shape=mxgraph.cisco.switches.workgroup_switch;html=1;pointerEvents=1;dashed=0;fillColor=#dae8fc;strokeColor=#6c8ebf;sketch=0;aspect=fixed;fontSize=10;" vertex="1" parent="bldg_b_container">
+      <mxGeometry x="260" y="60" width="100" height="70" as="geometry" />
+    </mxCell>
+
+    <!-- IP500 V2 #2 -->
+    <mxCell id="ip500_b" value="Avaya IP500 V2 #2&#xa;Building B Controller&#xa;2× Phone 16 V2 Cards&#xa;32 Analog Ports&#xa;(30 used, 2 spare)&#xa;SCN via Fiber&#xa;⚡ Survivability Mode" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0a30a;fontColor=#000000;strokeColor=#BD7000;fontSize=10;fontStyle=1;" vertex="1" parent="bldg_b_container">
+      <mxGeometry x="60" y="220" width="160" height="110" as="geometry" />
+    </mxCell>
+
+    <!-- Analog Extensions B -->
+    <mxCell id="analog_b" value="30 × Analog Extensions&#xa;(Fax, Door Phone, Legacy)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=10;" vertex="1" parent="bldg_b_container">
+      <mxGeometry x="60" y="370" width="160" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- PoE Access Switch B -->
+    <mxCell id="poe_sw_b" value="PoE+ Access Switches&#xa;48-port 802.3at&#xa;VLAN 20 (Voice)&#xa;DSCP EF marking" style="shape=mxgraph.cisco.switches.workgroup_switch;html=1;pointerEvents=1;dashed=0;fillColor=#dae8fc;strokeColor=#6c8ebf;sketch=0;aspect=fixed;fontSize=10;" vertex="1" parent="bldg_b_container">
+      <mxGeometry x="400" y="210" width="100" height="70" as="geometry" />
+    </mxCell>
+
+    <!-- IP Phones B -->
+    <mxCell id="phones_b" value="500 × Avaya J-Series&#xa;IP Phones&#xa;(J129/J139/J159/J169&#xa;J179/J189/J199)&#xa;VLAN 20 – Voice&#xa;DHCP Option 176" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="bldg_b_container">
+      <mxGeometry x="400" y="330" width="160" height="100" as="geometry" />
+    </mxCell>
+
+    <!-- Connections in Building B -->
+    <mxCell id="e_ip500b_coreswb" value="SCN / LAN" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="ip500_b" target="core_sw_b" parent="bldg_b_container">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e_ip500b_analog_b" value="Analog lines" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="ip500_b" target="analog_b" parent="bldg_b_container">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e_poe_core_b" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="poe_sw_b" target="core_sw_b" parent="bldg_b_container">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e_phones_poe_b" value="PoE (IEEE 802.3at)" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="phones_b" target="poe_sw_b" parent="bldg_b_container">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Fiber link label -->
+    <mxCell id="fiber_link" value="Existing Fiber Optic Link&#xa;(Building A ↔ Building B)&#xa;≥1 Gbps | SCN + Voice VLAN&#xa;QoS preserved" style="text;html=1;strokeColor=#FF8000;fillColor=#FFE6CC;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="640" y="820" width="260" height="70" as="geometry" />
+    </mxCell>
+
+    <!-- SBC to Building A -->
+    <mxCell id="e_sbce_bldga" value="SIP Trunk (Internal)&#xa;UDP 5060" style="edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="sbce" target="bldg_a_container" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Fiber between buildings -->
+    <mxCell id="e_bldga_fiber" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#FF8000;strokeWidth=3;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="bldg_a_container" target="bldg_b_container" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="760" y="880" />
+          <mxPoint x="760" y="880" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+
+    <!-- Legend -->
+    <mxCell id="legend" value="LEGEND" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="80" y="1150" width="100" height="30" as="geometry" />
+    </mxCell>
+    <mxCell id="leg1" value="SIP / Voice Traffic" style="text;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="80" y="1190" width="130" height="30" as="geometry" />
+    </mxCell>
+    <mxCell id="leg2" value="Fiber Optic Link" style="text;html=1;strokeColor=#FF8000;fillColor=#FFE6CC;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="230" y="1190" width="130" height="30" as="geometry" />
+    </mxCell>
+    <mxCell id="leg3" value="Analog Extensions" style="text;html=1;strokeColor=#666666;fillColor=#f5f5f5;fontColor=#333333;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="380" y="1190" width="130" height="30" as="geometry" />
+    </mxCell>
+
+  </root>
+</mxGraphModel>
